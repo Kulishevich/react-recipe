@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './Header.module.css'
 import { BsBookmarkHeartFill } from "react-icons/bs";
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import { useFavorites } from '../../hooks/useFavorites';
 
 export default function Header() {
-    const favorites = useSelector(state => state.favorites)
-
+  const favorites = useFavorites()  
+    
   return (
     <div className={styles.header}>
         <BsBookmarkHeartFill className={styles.icon}/>
