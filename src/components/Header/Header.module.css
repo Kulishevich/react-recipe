@@ -1,0 +1,23 @@
+.header {
+    /* border: 1px solid black; */
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+.icon {
+    width: 40px;
+    height: 40px;
+}
+.counter {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+}

@@ -1,0 +1,10 @@
+.item {
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;   
+    margin-bottom: 10px; 
+    background-color: rgba(0, 0, 0, 0.104);
+}
+.title {
+    margin: 5px;
+}

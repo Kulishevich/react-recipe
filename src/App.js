@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header/Header';
+import './global.css'
+import RecipeItem from './components/RecipeItem/RecipeItem';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main'>
+        <Header/>
+        <RecipeItem 
+          recipe={{
+            id: 1,
+            name: 'Лазанья',
+          }} 
+        />
+                <RecipeItem 
+          recipe={{
+            id: 2,
+            name: 'Борщ',
+          }} 
+        />
+                <RecipeItem 
+          recipe={{
+            id: 3,
+            name: 'Драники',
+          }} 
+        />
     </div>
-  );
+  )
 }
 
 export default App;
