@@ -1,13 +1,17 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit"
 
-const fetchUserById = (userId) => {
-    new Promise(resolve => 
-    setTimeout(() => resolve({id: 1, name: 'Max'}), 1000))
-}
-//разобрать этот промис
-export const getItemById = 
-createAsyncThunk('users-by-id',
-async(userId, thunkApi) => {
-    const responce = await fetchUserById(userId)
-    return responce
+export const fetchById = (userId) => (
+    new Promise(resolve =>
+        setTimeout(() => resolve({id: 1, name: 'Maksim'}), 1000)
+))
+
+export const getUserById = createAsyncThunk('user-by-id',
+async (userId, thunkAPI) => {
+    try{
+        const response = await fetchById(userId)
+        return response
+    }
+    catch(error){
+        thunkAPI.rejectWithValue(error)
+    }
 })

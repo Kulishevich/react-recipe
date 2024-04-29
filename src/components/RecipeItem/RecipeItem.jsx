@@ -1,25 +1,24 @@
 import React from 'react'
 import styles from './RecipeItem.module.css'
-import { useSelector } from 'react-redux'
-import { useActions } from '../../hooks/useActions'
 import { useFavorites } from '../../hooks/useFavorites'
-// import { actions, favoritesSlice } from '../store/slices/favorites.slice'
+import { useActions } from '../../hooks/useActions'
+
 
 export default function RecipeItem({recipe}) {
-  const favorites = useFavorites()
-  const { toggleFavorites } = useActions()
+  const favorites = useFavorites() //хук который возвращает массив favorites(из redux)
+  const inFavorite = favorites.some(obj => obj.id === recipe.id); //проверка на наличие элемента по id в массиве favorites
+  const { addToFavorites } = useActions() //достаём из useActions() action 
 
-  const inFavorites = favorites.some(obj => obj.id === recipe.id);
+
 
   return (
     <div className={styles.item}>
-        {/* <img src='' alt=''/> */}
         <h2 className={styles.title}>{recipe.name}</h2>
         <button 
           className={styles.button}
-          onClick={() => toggleFavorites(recipe)}
+          onClick={() => addToFavorites(recipe)}
         >
-          {!inFavorites ? 'Add to favorites' : 'Remove from favorites'}
+          {inFavorite ? "Remove from favorite" : 'Add to favorite'}
         </button>
     </div>
   )

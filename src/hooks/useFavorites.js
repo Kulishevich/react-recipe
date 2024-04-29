@@ -1,5 +1,3 @@
 import { useSelector } from "react-redux"
 
-export const useFavorites = () => {
-    return useSelector(state => state.favorites)
-}
+export const useFavorites = () => useSelector(state => state.favorites.items)
