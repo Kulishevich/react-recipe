@@ -20,6 +20,7 @@ export default function RecipeItem({recipe}) {
         >
           {inFavorite ? "Remove from favorite" : 'Add to favorite'}
         </button>
+        <img src={recipe.image} alt="" className={styles.image} />
     </div>
   )
 }

@@ -1,31 +1,26 @@
 import Header from './components/Header/Header';
 import './global.css'
 import RecipeItem from './components/RecipeItem/RecipeItem';
-import User from './components/User/User';
+import { useGetRecipesQuery } from './store/api/api';
+import CreateRecipe from './components/CreateRecipe/CreateRecipe';
+// import User from './components/User/User';
 
 function App() {
+  const { data, isLoading } = useGetRecipesQuery()
+  console.log(data, isLoading)
   return (
     <div className='main'>
         <Header/>
-        <User/>
+        <CreateRecipe/>
+        {/* <User/> */}
+        {isLoading ? <h2>...Loading</h2> : data ? data.map(recipe =>
         <RecipeItem 
+          key={recipe.id}
           recipe={{
-            id: 1,
-            name: 'Лазанья',
-          }} 
-        />
-                <RecipeItem 
-          recipe={{
-            id: 2,
-            name: 'Борщ',
-          }} 
-        />
-                <RecipeItem 
-          recipe={{
-            id: 3,
-            name: 'Драники',
-          }} 
-        />
+            id: recipe.id,
+            name: recipe.name,
+            image: recipe.image,
+          }} />) : <h2>Not found</h2>}
     </div>
   )
 }
