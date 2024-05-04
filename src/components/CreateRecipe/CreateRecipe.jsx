@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useCreateRecipeMutation } from '../../store/api/recipe.api'
+import styles from './CreateRecipe.module.css'
 
 const defaultValue = {
     name: '',
@@ -19,7 +20,7 @@ export default function CreateRecipe() {
 
   return (
     <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.container}>
             <label>
                 <h3>Название рецепта:</h3>
                 <input value={recipe.name} placeholder='Name' onChange={(event) => setRecipe({...recipe, name: event.target.value})} />
@@ -28,7 +29,7 @@ export default function CreateRecipe() {
                 <h3>Картинка рецепта:</h3>
                 <input value={recipe.image} placeholder='Image' onChange={(event) => setRecipe({...recipe, image: event.target.value})} />
             </label>
-            <button type='submit'>Отправить</button>
+            <button className={styles.button} type='submit'>Отправить</button>
         </form>
     </div>
   )

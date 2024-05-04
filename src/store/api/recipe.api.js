@@ -7,9 +7,21 @@ export const recipeApi = api.injectEndpoints({
                 body: recipe,
                 url: '/',
                 method: 'POST'
-            })
-        })
+            }),
+            invalidatesTags: () => [{
+                type: 'Recipe',
+            }]
+        }),
+        deleteRecipe: builder.mutation({
+            query: (itemId) => ({
+              url: `/${itemId}`,
+              method: 'DELETE',
+           }),
+           invalidatesTags: () => [{
+            type: 'Recipe',
+        }] 
+        }),
     })
 })
 
-export const { useCreateRecipeMutation } = recipeApi //тут может быть ошибка
+export const { useCreateRecipeMutation, useDeleteRecipeMutation } = recipeApi //тут может быть ошибка

@@ -5,9 +5,13 @@ import { useGetRecipesQuery } from './store/api/api';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 // import User from './components/User/User';
 
+const userId = 1;
+
 function App() {
-  const { data, isLoading } = useGetRecipesQuery()
-  console.log(data, isLoading)
+  const { data, isLoading } = useGetRecipesQuery(undefined, {
+    skip: !userId,
+})
+
   return (
     <div className='main'>
         <Header/>
