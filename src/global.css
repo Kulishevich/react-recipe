@@ -25,3 +25,8 @@ button:hover{
     cursor: pointer;
     background-color: white;
 }
+
+.RecipeContainer {
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -17,14 +17,16 @@ function App() {
         <Header/>
         <CreateRecipe/>
         {/* <User/> */}
-        {isLoading ? <h2>...Loading</h2> : data ? data.map(recipe =>
-        <RecipeItem 
-          key={recipe.id}
-          recipe={{
-            id: recipe.id,
-            name: recipe.name,
-            image: recipe.image,
-          }} />) : <h2>Not found</h2>}
+        <div className='RecipeContainer'>
+          {isLoading ? <h2>...Loading</h2> : data ? data.map(recipe =>
+          <RecipeItem 
+            key={recipe.id}
+            recipe={{
+              id: recipe.id,
+              name: recipe.name,
+              image: recipe.image,
+            }} />) : <h2>Not found</h2>}
+        </div>
     </div>
   )
 }
